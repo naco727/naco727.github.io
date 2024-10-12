@@ -13,7 +13,7 @@ header {
 }
 
 .profile-img {
-    width: 150px; /* 设置图片宽度 */
+    width: 450px; /* 设置图片宽度 */
     height: auto; /* 自适应高度 */
     border-radius: 50%; /* 圆形效果 */
     margin-top: 10px; /* 上边距 */
