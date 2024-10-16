@@ -5,10 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>我的個人主頁</title>
+    <style>
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+</style>
 </head>
 <body>
     <header>
-        <h1>歡迎來到我的網站</h1>
+        <nav>
+    <ul>
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#services">服務</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+    </ul>
+</nav>
         <p>你好！我是學分戰士，但今天不是我生日。但這是我畫的</p>
         <!-- 添加图片 -->
         <img src="456.jpg" alt="我畫的" style="width: 450px; height: auto;" class="profile-img">
