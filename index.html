@@ -34,10 +34,10 @@
         nav {
             background-color: #808040;
             padding: 20px;
-            transition: opacity 0.5s; /* 添加過渡效果 */
+            transition: opacity 1s; /* 添加過渡效果 */
         }
         nav.scrolled {
-            opacity: 0.5; /* 滾動時的透明度 */
+            opacity: 0.2; /* 滾動時的透明度 */
         }
 </style>
 </head>
@@ -95,7 +95,7 @@
     <script>
         $(document).ready(function() {
             $(window).scroll(function() {
-                if ($(this).scrollTop() > 50) { // 滾動距離
+                if ($(this).scrollTop() > 10) { // 滾動距離
                     $('nav').addClass('scrolled');
                 } else {
                     $('nav').removeClass('scrolled');
