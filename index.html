@@ -35,19 +35,34 @@
             right: 20px;
             width: 100px;
             height: 100px;
+            background-size: cover; /* 使圖片填滿 */
+            border-radius: 50%; /* 圓形 */
             cursor: pointer;
             z-index: 1000;
-            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .floating-icon img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%; /* 圓形 */
-            object-fit: cover; /* 確保圖片填滿圓形 */
+        /* 顯示的文字 */
+        .floating-icon .tooltip {
+            display: none; /* 初始隱藏 */
+            position: absolute;
+            bottom: 120%; /* 調整顯示位置 */
+            right: 50%;
+            transform: translateX(50%);
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+            white-space: nowrap;
+            font-size: 12px;
+            z-index: 1001;
+        }
+
+        /* 當鼠標懸停時顯示文字 */
+        .floating-icon:hover .tooltip {
+            display: block; /* 懸停時顯示 */
         }
 
         /* 不透明對話框 */
@@ -105,8 +120,8 @@
     </footer>
 
     <!-- 浮動小圖 -->
-    <div class="floating-icon" id="floatingIcon">
-        <img src="1234.jpg" alt="有問題可以問我喔！">
+    <div class="floating-icon" id="floatingIcon" style="background-image: url('1234.jpg');">
+        <div class="tooltip">有問題可以問我喔！</div>
     </div>
 
     <!-- 對話框 -->
@@ -154,7 +169,5 @@
     </script>
 </body>
 </html>
-
-
 
 
