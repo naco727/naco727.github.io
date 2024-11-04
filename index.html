@@ -27,30 +27,62 @@
         nav ul li a:hover {
             text-decoration: underline;
         }
-        
-        body {
-            height: 2000px; /* 讓頁面有滾動效果 */
-            transition: opacity 0.5s; /* 添加過渡效果 */
+
+        /* 浮動小圖樣式 */
+        .floating-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+            text-align: center;
         }
-        body.scrolled {
-            opacity: 0.1; /* 整個頁面的透明度 */
+
+        /* 顯示的文字 */
+        .floating-icon::after {
+            content: "有問題可以問我喔！";
+            display: none; /* 初始隱藏 */
+            position: absolute;
+            bottom: 60px; /* 調整顯示位置 */
+            right: 0;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+            white-space: nowrap;
+            font-size: 12px;
+            z-index: 1001;
         }
-        nav {
-            background-color: #808040;
-            padding: 20px;
+
+        /* 當鼠標懸停時顯示文字 */
+        .floating-icon:hover::after {
+            display: block; /* 懸停時顯示 */
         }
-</style>
+
+        /* 不透明對話框 */
+        .modal-content {
+            background-color: white; /* 設置對話框背景為白色 */
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
-    <ul>
-        <li><a href="#me">關於我</a></li>
-        <li><a href="#flim">電視劇</a></li>
-    </ul>
-</nav>
+            <ul>
+                <li><a href="#me">關於我</a></li>
+                <li><a href="#flim">電視劇</a></li>
+            </ul>
+        </nav>
         <p>你好！我是學分戰士，但今天不是我生日。但這是我畫的</p>
-        <!-- 添加图片 -->
         <img src="456.jpg" alt="我畫的" style="width: 450px; height: auto;" class="profile-img">
     </header>
     <main>
@@ -63,46 +95,80 @@
             <h2>我目前喜歡的電視劇</h2>
             <div class="container mt-5">
                 <ul class="nav nav-tabs">
-                <li class="nav-item">
-                <a class="nav-link active" href="#law" data-toggle="tab">來自地獄的法官</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#moving" data-toggle="tab">Moving 異能</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#law" data-toggle="tab">來自地獄的法官</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#moving" data-toggle="tab">Moving 異能</a>
+                    </li>
                 </ul>
-        <div class="tab-content mt-3">
-        <div id="law" class="tab-pane fade show active">
-            <h4>來自地獄的法官</h4>
-            <p>我覺得這部劇就是一個爽劇，在爽的成分中帶點懸疑。雖然我覺得這部劇裡面的愛情有點多餘，但不得不說朴的眼神真的很好看❤️</p>
-            <img src="789.jpg" alt="來自地獄的法官" class="cool-img">
-            <p>歡迎前往迪士尼觀看<a href="https://www.disneyplus.com/zh-hant/browse/entity-31b0f838-cd6f-423d-ad77-049922c87662" target="_blank">來自地獄的法官</a></p>
-        </div>
-        <div id="moving" class="tab-pane fade">
-            <h4>Moving 異能</h4>
-            <p>這部劇就是一個充滿驚險的故事，令人血脈噴張，女主角也很好看！</p>
-            <img src="1234.jpg" alt="Moving" style="width: 640px; height: auto;" class="moving-img">
-        </div>
-    </div>
-</div>
+                <div class="tab-content mt-3">
+                    <div id="law" class="tab-pane fade show active">
+                        <h4>來自地獄的法官</h4>
+                        <p>我覺得這部劇就是一個爽劇，在爽的成分中帶點懸疑。雖然我覺得這部劇裡面的愛情有點多餘，但不得不說朴的眼神真的很好看❤️</p>
+                        <img src="789.jpg" alt="來自地獄的法官" class="cool-img">
+                        <p>歡迎前往迪士尼觀看<a href="https://www.disneyplus.com/zh-hant/browse/entity-31b0f838-cd6f-423d-ad77-049922c87662" target="_blank">來自地獄的法官</a></p>
+                    </div>
+                    <div id="moving" class="tab-pane fade">
+                        <h4>Moving 異能</h4>
+                        <p>這部劇就是一個充滿驚險的故事，令人血脈噴張，女主角也很好看！</p>
+                        <img src="1234.jpg" alt="Moving" style="width: 640px; height: auto;" class="moving-img">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 我的主頁喔.</p>
     </footer>
+
+    <!-- 浮動小圖 -->
+    <div class="floating-icon" id="floatingIcon">?</div>
+
+    <!-- 對話框 -->
+    <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="questionModalLabel">有問題可以問我喔！</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="userQuestion" placeholder="輸入你的問題...">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="sendQuestion">傳送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) { // 滾動距離
-                    $('nav').addClass('scrolled');
+            // 點擊浮動小圖顯示對話框
+            $('#floatingIcon').click(function() {
+                $('#questionModal').modal('show');
+            });
+
+            // 點擊傳送按鈕
+            $('#sendQuestion').click(function() {
+                const userInput = $('#userQuestion').val();
+                if (userInput) {
+                    alert('已成功發送！');
+                    $('#userQuestion').val(''); // 清空輸入框
+                    $('#questionModal').modal('hide'); // 隱藏對話框
                 } else {
-                    $('nav').removeClass('scrolled');
+                    alert('請輸入問題！');
                 }
             });
         });
     </script>
 </body>
 </html>
+
 
