@@ -27,6 +27,18 @@
         nav ul li a:hover {
             text-decoration: underline;
         }
+        
+        body {
+            height: 2000px; /* 讓頁面有滾動效果 */
+        }
+        nav {
+            background-color: #808040;
+            padding: 20px;
+            transition: opacity 0.5s; /* 添加過渡效果 */
+        }
+        nav.scrolled {
+            opacity: 0.5; /* 滾動時的透明度 */
+        }
 </style>
 </head>
 <body>
