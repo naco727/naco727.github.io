@@ -33,18 +33,17 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 50px; /* 圖片寬度 */
+            height: 50px; /* 圖片高度 */
+            background-image: url('1234.JPG'); /* 替換成你的圖片 URL */
+            background-size: cover; /* 使圖片填滿 */
+            cursor: pointer;
+            z-index: 1000;
+            text-align: center;
+            color: white; /* 文字顏色 */
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
-            font-size: 14px;
-            z-index: 1000;
-            text-align: center;
         }
 
         /* 顯示的文字 */
@@ -123,7 +122,7 @@
     </footer>
 
     <!-- 浮動小圖 -->
-    <div class="floating-icon" id="floatingIcon">?</div>
+    <div class="floating-icon" id="floatingIcon"></div>
 
     <!-- 對話框 -->
     <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
@@ -170,5 +169,6 @@
     </script>
 </body>
 </html>
+
 
 
